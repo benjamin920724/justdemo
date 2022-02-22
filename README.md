@@ -3,29 +3,29 @@
 
 목차
 ----
-- [구성 환경](#구성 환경)
-- [빌드 및 실행](#빌드 및 실행)
-- [테스트 방법](#테스트 방법)
-- [기술 요구사항 구현 방안](#기술 요구사항 구현 방안)
+- [구성 환경](#구성환경)
+- [빌드 및 실행](#빌드및실행)
+- [테스트 방법](#테스트방법)
+- [기술 요구사항 구현 방안](#기술요구사항구현방안)
 - [참고사항](#참고사항)
 
 
 구성 환경
 ----
-* `Java11`
-* `Spring boot 2.6.3`
-* `gradle 7.4`
-* `사용 라이브러리`
-	- `H2` 
-		- In-Memory DB로 사용
-	- `JPA`
-		- JPA 인터페이스 사용 목적
-	- `Swagger`
-		- 테스트 활용 목적
-	- `Lombok`
-		- 생산성 향상 목적으로 사용
-	-  `HttpClient`
-		- RestAPI 호출 시 사용
+- 기본 환경
+	- OS : Mac OS X
+	- IDE : STS4
+- 서버 환경
+	- Java11
+	- Spring boot 2.6.3
+	- gradle 7.4
+	- 사용 라이브러리 :: 목적
+		- H2 :: In-Memory DB로 사용
+		- JPA :: JPA 인터페이스 사용 목적
+		- Swagger :: 테스트 활용 목적
+		- Lombok ::생산성 향상 목적으로 사용
+		- HttpClient :: RestAPI 호출 시 사용
+		-  Junit5 :: 단위테스트
 	
 빌드 및 실행
 ----
@@ -44,9 +44,11 @@ $ java -jar build/libs/assignment-0.0.1-SNAPSHOT.jar
 - cURL을 활용합니다.
 - Base URL : `http://localhost:8080`
 
-<br/>1) 장소 검색하기 
+1) 장소 검색하기 
 <br/>`curl -G -X GET  “http://localhost:8080/api/place” --data-urlencode “keyword=[원하는키워드]”`
-<br/>동시성 테스트를 위해 동일한 단어를 여러 번 요청할 수 있습니다. 위 명령어를 `&`로 구분하여 요청 횟수만큼 반복해줍니다.
+<br/>
+<br/>
+동시성 테스트를 위해 동일한 단어를 여러 번 요청할 수 있습니다. 위 명령어를 `&`로 구분하여 요청 횟수만큼 반복해줍니다.
 <br/>`curl & curl & curl & ...`
 
 <br/>2) 검색 키워드 목록
