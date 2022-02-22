@@ -30,7 +30,7 @@
 빌드 및 실행
 ----
 ### 터미널 환경
-- Git, Java 설치 후 아래 명령어를 수행합니다.
+- Git, Java가 설치되어 있음을 가정하고 아래 명령어를 수행합니다.
 - 8080 port를 사용합니다.
 ```
 $ git clone https://github.com/benjamin920724/justdemo.git
@@ -41,7 +41,7 @@ $ java -jar build/libs/assignment-0.0.1-SNAPSHOT.jar
 
 테스트 방법
 ----
-- 서버가 정상적으로 실행 된 이후 수행합니다.
+- 서버가 정상적으로 실행된 이후 수행합니다.
 - cURL을 활용합니다.
 - Base URL : `http://localhost:8080`
 
