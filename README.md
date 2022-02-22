@@ -1,3 +1,15 @@
+# 과제입니다
+----
+
+목차
+----
+- [구성 환경](#구성 환경)
+- [빌드 및 실행](#빌드 및 실행)
+- [테스트 방법](#테스트 방법)
+- [기술 요구사항 구현 방안](#기술 요구사항 구현 방안)
+- [참고사항](#참고사항)
+
+
 구성 환경
 ----
 * `Java11`
@@ -15,12 +27,22 @@
 	-  `HttpClient`
 		- RestAPI 호출 시 사용
 	
-
-
-
-cURL 테스트 방법
+빌드 및 실행
 ----
-최초 Project Clone 후 Local에서 프로젝트를 실행합니다. (port 8080)
+### 터미널 환경
+- Git, Java 설치 후 아래 명령어를 수행합니다.
+```
+$ git clone https://github.com/benjamin920724/justdemo.git
+$ cd justdemo
+$ ./gradlew clean build
+$ java -jar build/libs/assignment-0.0.1-SNAPSHOT.jar
+```
+
+테스트 방법
+----
+- Local 터미널 환경에서 테스트함을 가정합니다.
+- cURL을 활용합니다.
+- Base URL : `http://localhost:8080`
 
 <br/>1) 장소 검색하기 
 <br/>`curl -G -X GET  “http://localhost:8080/api/place” --data-urlencode “keyword=[원하는키워드]”`
@@ -49,7 +71,7 @@ cURL 테스트 방법
 	- CustomException 생성 및 ExceptionController 사용을 통해 필요 시 간단하게 오류를 핸들링할 수 있습니다.
 
 
-참고 사항
+참고사항
 ----
 - 특정 서비스 검색 결과가 5개 미만일 시, 가장 마지막 음절을 제외하고 다시 한 번 검색하도록 하였습니다. (1회만)
 - 검색어 길이는 양 끝 공백을 제외한 1~50 자로 제한하였습니다.
