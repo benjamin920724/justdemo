@@ -31,6 +31,7 @@
 ----
 ### 터미널 환경
 - Git, Java 설치 후 아래 명령어를 수행합니다.
+- 8080 port를 사용합니다.
 ```
 $ git clone https://github.com/benjamin920724/justdemo.git
 $ cd justdemo
@@ -40,6 +41,7 @@ $ java -jar build/libs/assignment-0.0.1-SNAPSHOT.jar
 
 테스트 방법
 ----
+- 서버가 정상적으로 실행 된 이후 수행합니다.
 - cURL을 활용합니다.
 - Base URL : `http://localhost:8080`
 
@@ -108,6 +110,7 @@ $ java -jar build/libs/assignment-0.0.1-SNAPSHOT.jar
 ----
 - 특정 서비스 검색 결과가 5개 미만일 시, 가장 마지막 음절을 제외하고 다시 한 번 검색하도록 하였습니다. (1회만)
 - 검색어 길이는 양 끝 공백을 제외한 1~50 자로 제한하였습니다.
+- 인메모리DB 사용으로, 서버 종료 시 기존 데이터들은 삭제됩니다.
 
 
 
