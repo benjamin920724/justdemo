@@ -1,5 +1,5 @@
 # 과제입니다
-----
+
 
 목차
 ----
@@ -12,10 +12,10 @@
 
 구성 환경
 ----
-- 기본 환경
+- 기본 환경은 아래와 같습니다.
 	- OS : Mac OS X
 	- IDE : STS4
-- 서버 환경
+- 서버 환경은 아래와 같습니다.
 	- Java11
 	- Spring boot 2.6.3
 	- gradle 7.4
@@ -23,7 +23,7 @@
 		- H2 :: In-Memory DB로 사용
 		- JPA :: JPA 인터페이스 사용 목적
 		- Swagger :: 테스트 활용 목적
-		- Lombok ::생산성 향상 목적으로 사용
+		- Lombok :: 생산성 향상 목적으로 사용
 		- HttpClient :: RestAPI 호출 시 사용
 		-  Junit5 :: 단위테스트
 	
@@ -40,20 +40,51 @@ $ java -jar build/libs/assignment-0.0.1-SNAPSHOT.jar
 
 테스트 방법
 ----
-- Local 터미널 환경에서 테스트함을 가정합니다.
 - cURL을 활용합니다.
 - Base URL : `http://localhost:8080`
 
-1) 장소 검색하기 
-<br/>`curl -G -X GET  “http://localhost:8080/api/place” --data-urlencode “keyword=[원하는키워드]”`
-<br/>
-<br/>
-동시성 테스트를 위해 동일한 단어를 여러 번 요청할 수 있습니다. 위 명령어를 `&`로 구분하여 요청 횟수만큼 반복해줍니다.
+1) 장소 검색하기
+
+- Request 
+<br/>`curl -G -X GET  "http://localhost:8080/api/place" --data-urlencode "keyword=[원하는키워드]"`
+<br/><br/>동시성 테스트를 위해 동일한 단어를 여러 번 요청할 수 있습니다. 위 명령어를 `&`로 구분하여 요청 횟수만큼 반복해줍니다.
 <br/>`curl & curl & curl & ...`
 
-<br/>2) 검색 키워드 목록
-<br/>`curl -G -X GET "http://localhost:8080/api/hotkeyword`
+- Response (예시, keyword가 '강남'인 경우)
+```
+{
+	"places":
+		[
+			{"title":"압구정로데오거리"},
+			{"title":"서울 선릉과 정릉"},
+			{"title":"양재천"},
+			{"title":"청담동명품거리"},
+			{"title":"세븐럭카지노 강남코엑스점"},
+			{"title":"코엑스"},
+			{"title":"코엑스아쿠아리움"},
+			{"title":"LG아트센터"},
+			{"title":"가로수길"},
+			{"title":"카페 노티드 청담"}
+		]
+}
+```
 
+2) 검색 키워드 목록
+
+- Request
+<br/>`curl -G -X GET "http://localhost:8080/api/hotkeyword"`
+
+- Response
+```
+{
+"keywords":[
+		{
+			"count":1,
+			"keyword":"강남"
+		}
+	]
+}
+```
 
 기술 요구사항 구현방안
 ----
